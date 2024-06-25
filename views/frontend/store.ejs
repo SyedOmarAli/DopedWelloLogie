@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/store.css">
+  <link rel="stylesheet" href="/stylesheets/global.css">
+  <link rel="stylesheet" href="/stylesheets/bootstrap1.css">
+  <link rel="stylesheet" href="/stylesheets/styless.css">
+  <link rel="stylesheet" href="/stylesheets/blog.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Agdasima:wght@400;700&family=Edu+TAS+Beginner:wght@400..700&family=Lumanosimo&family=Mooli&family=Rasa:ital,wght@0,300..700;1,300..700&family=Tapestry&family=Ysabeau:ital,wght@0,1..1000;1,1..1000&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/858ef96f64.js" crossorigin="anonymous"></script>
+  <title>Store</title>
+</head>
+
+
+<body>
+  <div id="root">
+    <div class="header header-default py-2" id="st-head">
+      <nav class="shell">
+        <div class="nav-default-mobile pt-4">
+          <ul class="text-start ms-5">
+            <li class="menu-item">
+              <a href="../html/ctg.html" class="ctg-link">Beauty</a>
+            </li>
+            <li class="menu-item">
+              <a href="../html/ctg.html" class="ctg-link">Fashion</a>
+            </li>
+            <li class="menu-item">
+              <a href="../html/ctg.html" class="ctg-link">Lifestyle</a>
+            </li>
+            <li class="menu-item">
+              <a href="../html/ctg.html" class="ctg-link">What To Buy</a>
+            </li>
+            <li>
+              <div class="serchBox1">
+                <form action="/search" class="sb-search-form" method="get" accept-charset="utf-8">
+                  <input id="search" class="sb-search-input" placeholder="Search Here" type="text" value="" name="q" />
+                  <button class="bg-transparent border-0" type="button" role="button">
+                    <i class="fa-search fa-solid search-icon"></i>
+                  </button>
+                  <button class="bg-transparent border-0" type="button" role="button" onclick="closeFunc()">
+                    <i class="fa-solid fa-xmark x-icon"></i>
+                  </button>
+                </form>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="header__inner">
+          <div class="header__logo">
+            <a href="index.html" title="PureWow">
+              <!-- <img class="logo" src="../images/purewoow.png" alt="TheLuxeBlog" width="216" height="40"> -->
+            </a>
+          </div>
+          <div class="header__nav">
+            <div class="nav-default">
+              <ul class="gap-4">
+                <li class="menu-item">
+                  <a href="../html/ctg.html" class="ctg-link">Beauty</a>
+                </li>
+                <li class="menu-item">
+                  <a href="../html/ctg.html" class="ctg-link">Fashion</a>
+                </li>
+                <li class="menu-item">
+                  <a href="../html/ctg.html" class="ctg-link">Lifestyle</a>
+                </li>
+                <li class="menu-item">
+                  <a href="../html/ctg.html" class="ctg-link">What To Buy</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="serchBox">
+            <form action="/search" class="sb-search-form" method="get" accept-charset="utf-8">
+              <input class="sb-search-input rounded-end" placeholder="Search Here" type="search" value="" name="q" id="search">
+
+              <style>
+                header .serchBox .search-btn .search-icon {
+                  display: inline;
+                }
+
+                header .serchBox .search-btn .close-icon {
+                  display: none;
+                }
+
+                header .serchBox .search-btn.open .search-icon {
+                  display: none;
+                }
+
+                header .serchBox .search-btn.open .close-icon {
+                  display: inline;
+                }
+              </style>
+
+              <button class="bg-transparent border-0 search-btn" type="button" role="button">
+                <i class="search-icon fa-search fa-solid"></i>
+                <i class="close-icon fa-solid fa-xmark"></i>
+              </button>
+            </form>
+          </div>
+
+
+
+          <button class="btn-hamb" onclick="showNavBar()">
+            <svg width="100%" height="100%" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-miterlimit:1.5;">
+              <path class="c-line c-line1" d="M0.057,24.064L51.915,24.173L51.917,7.786L7.818,52.244" <path class="c-line c-line2" d="M-0.032,35.821L51.906,35.821L51.907,52.227L7.856,7.812" style="fill:none;stroke:black;stroke-width:2px;" />
+            </svg>
+          </button>
+
+        </div>
+      </nav>
+    </div>
+
+    <main class="container-main entry-content container-fluid">
+      <section class="section mt-1">
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="col-lg-4 order-lg-0 order-1" style="margin-top: 5rem;">
+                      <div class="widget d-lg-none">
+                          <div class="image store_image text-center mb-4">
+                              <img src="/uploads/<%= brand.image %>" alt="<%= brand.name %>">
+                          </div>
+                          <div class="section-title text-center mb-2">
+                              <h5><%= coupon.length %> Offers Available</h5>
+                          </div>
+                          <div class="d-lg-none d-block">
+                              <fieldset class="rating d-flex justify-content-center">
+                                  <% for (let i = 5; i >= 1; i--) { %>
+                                  <input type="radio" id="star<%= i %>" name="rating" value="<%= i %>"
+                                      <%= i === brand.rating ? 'checked' : '' %> />
+                                  <label class="full" for="star<%= i %>" title="<%= i %> stars"></label>
+                                  <% } %>
+                              </fieldset>
+                              <p class="mb-0 text-center">
+                                  <%= brand.rating %> out of <%= brand.ratingCount %>
+                              </p>
+                          </div>
+                      </div>
+                      <div class="widget">
+                          <div class="image store_image text-center mb-4 d-lg-block d-none">
+                              <img src="/images/uploads/<%= brand.image %>" alt="<%= brand.name %>">
+                          </div>
+                          <div class="section-title text-center mb-2 d-lg-block d-none">
+                              <h5><%= coupon.length %> Offers Available</h5>
+                          </div>
+                          <div class="d-lg-block d-none mb-4">
+                              <fieldset class="rating d-flex justify-content-center">
+                                  <% for (let i = 5; i >= 1; i--) { %>
+                                  <input type="radio" id="star<%= i %>" name="rating" value="<%= i %>"
+                                      <%= i === brand.rating ? 'checked' : '' %> />
+                                  <label class="full" for="star<%= i %>" title="<%= i %> stars"></label>
+                                  <% } %>
+                              </fieldset>
+                              <p class="mb-0 text-center">
+                                  <%= brand.rating %> out of <%= brand.ratingCount %>
+                              </p>
+                          </div>
+                          <div class="information">
+                              <p><%- brand.description %></p>
+                          </div>
+                      </div>
+                      <div class="widget">
+                          <div class="offers">
+                              <h4 class="mb-2 offer-head">Today's <%= brand.name %> offers</h4>
+                              <table id="merchant-stats" class="table table-borderless table-sm">
+                                  <tbody>
+                                      <tr>
+                                          <td>All</td>
+                                          <td><span class="t-value"><%= coupon.length %></span></td>
+                                      </tr>
+                                      <tr>
+                                          <td>Discount Codes</td>
+                                          <td><span class="t-value"><%= coupon.filter(coupon => coupon.discountCode).length %></span></td>
+                                      </tr>
+                                      <tr>
+                                          <td>Online Deals</td>
+                                          <td><span class="t-value"><%= coupon.filter(coupon => !coupon.discountCode).length %></span></td>
+                                      </tr>
+                                      <tr>
+                                          <td>Free Shipping</td>
+                                          <td><span class="t-value"><%= coupon.filter(coupon => coupon.freeShipping).length %></span></td>
+                                      </tr>
+                                  </tbody>
+                              </table>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-8 order-lg-1 order-0" style="margin-top: 5rem;">
+                      <div class="my-3 my-md-0 strTitle text-lg-start text-md-center">
+                          <h1><span class="heading-bold pr-2 pe-2"><%= brand.name %></span><span class="heading-regular"></span>
+                          </h1>
+                      </div>
+                      <div class="ftrBtns my-3">
+                          <ul class="d-flex list-inline justify-content-sm-center justify-content-lg-start">
+                            <li class="ftrAtv list-inline  me-2">
+                              <a class="cpn-sort  link px-3 py-2" data-type="all" href="#">All<span>(<%= coupon.length %>)</span></a>
+                            </li>
+                            <li class=" list-inline  me-2">
+                              <a class="cpn-sort  link px-3 py-2" data-type="code" href="#">Discount
+                                Codes<span>(<%= coupon.filter(coupon => coupon.discountCode).length %>)</span></a>
+                            </li>
+                            <li class=" list-inline  me-2">
+                              <a class="cpn-sort  link px-3 py-2" data-type="deal" href="#">Online
+                                Deals<span>(<%= coupon.filter(coupon => !coupon.discountCode).length %>)</span></a>
+                            </li>
+                            <li class=" list-inline  me-2">
+                              <a class="cpn-sort  link px-3 py-2" data-type="free shipping" href="#">Free
+                                Shipping<span>(<%= coupon.filter(coupon => coupon.freeShipping).length %>)</span></a>
+                            </li>
+                          </ul>
+                      </div>
+                      <div class="coupons-list">
+                          <% coupon.forEach(coupon => { %>
+                          <li class="ccod coupon-info widget mb-4">
+                              <div class="row mx-0 position-static cpnList p-0">
+                                  <div id="coupon-27" class="coupon_off col-md-2 col-3"> 
+                                      <div class="Free h-100 d-table text-center mx-auto" id="coupon-27">
+                                          <div class="ofrBox offer-box d-table-cell align-middle">
+                                              <span class="reveal-coupon line-1 mb-0"><%= coupon.dynamicContent %></span>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="details-box cpnDtlBox col-md-6 col-9">
+                                      <div class="cpnMeta d-flex">
+                                          <span class="cpnTyp">
+                                              <%= coupon.type %>
+                                          </span>
+                                          <span class="cpnTyp">
+                                              <%= coupon.usageCount %> uses
+                                          </span>
+                                          <span class="cpnTyp">
+                                              <%= coupon.verified ? 'verified' : '' %>
+                                          </span>
+                                      </div>
+                                      <div class="cpnTitle c-title reveal-coupon">
+                                          <h5><a href="#"><%= coupon.title %></a></h5>
+                                          <p class="cpnBName color-primary mb-0">
+                                              <%= brand.name %>
+                                              <span></span>
+                                          </p>
+                                      </div>
+                                  </div>
+                                  <!-- Render each coupon button with data attributes -->
+<div class="col coupon-button-box cpncnt col-md-4 col-12 my-auto text-center d-block">
+  <div class="coupon-button cpnbtm link">
+    <a class="c_ids cpnbtn cpncbt w-100 reveal-coupon px-4 py-2"
+    href="/redirect?couponId=<%= coupon._id %>&u=<%= uParam %>"
+   target="_blank"
+   data-coupon-id="<%= coupon._id %>"
+   data-title="<%= coupon.title %>"
+   data-brand-name="<%= brand.name %>"
+   data-code="<%= coupon.discountCode || '' %>"
+   data-redirect-url="/redirect">
+   <span class="cpnbtx">
+     <% if (coupon.discountCode) { %>Get Code<% } else { %>Get Deal<% } %>
+   </span>
+ </a>
+  </div>
+</div>
+
+                              </div>
+                          </li>
+                          <% }); %>
+                      </div>
+                      <div class="widget">
+                          <div class="cpn-dc table-snpt">
+                              <div class="cpn-dc-head mb-3">
+                                  <h4></h4>
+                              </div>
+                              <table class="table mb-0">
+                                  <thead>
+                                      <tr class="font-weight-bold">
+                                          <td width="70%">Offers</td>
+                                          <td>Verified</td>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <% coupon.forEach(coupon => { %>
+                                        <tr role="button">
+                                          <td><%= coupon.title %></td>
+                                          <td class="verified_icon"><%= coupon.verified ? '&#10003;' : '' %></td>
+                                      </tr>
+                                      <% }); %>
+                                      </tbody>
+                                      </table>
+                                      </div>
+                                      </div>
+                                      <!-- FAQ -->
+                                      <div class="faq-container">
+                                          <div class="faq-header mb-3">
+                                              <h2 class="faq-heading px-4 py-3"> Frequently Asked Questions </h2>
+                                          </div>
+                                          <div class="faq-content">
+                                              <h4> How to use the <%= brand.name %> promo code? </h4>
+                                              <p>You can save money at <%= brand.name %> by using a coupon code you copied from this page when you purchase at <a href="<%= brand.website %>" title="<%= brand.name %> website" class="str_link"><%= brand.name %>.com</a>. Put the items in your shopping cart and proceed to checkout as usual. Just enter the code you got from the coupon into the "Add a Promo Code" box on the checkout page. Then, after pasting your code, click the "Apply" button.</p>
+                                              <hr class="mb-3 mt-1">
+                                              <h4> Is there any <%= brand.name %> free shipping offer? </h4>
+                                              <p>If you spend at least $50, <%= brand.name %> will ship your order for free. Plus, there's no minimum purchase necessary when you download the <%= brand.name %> app to enjoy free shipping.</p>
+                                              <hr class="mb-3 mt-1">
+                                              <h4> Is there a discount for students at <%= brand.name %>? </h4>
+                                              <p>Those who can prove their student status through Student Beans will receive a 20% discount at <%= brand.name %>.</p>
+                                              <hr class="mb-3 mt-1">
+                                              <h4> How do I join <%= brand.name %> Reward Program? </h4>
+                                              <p><%= brand.name %> offers a rewards program that can be joined online. Signing up requires the user to enter their name, email address, and password.</p>
+                                          </div>
+                                      </div>
+                                      </div>
+                                      </div>
+                                      </section>
+                                      </main>
+                                      
+  
+  </div>
+  <!-- .col-lg-8 -->
+
+
+
+
+  <div class="footer">
+    <div class="footer-contents">
+      <div class="footer-content">
+        <div class="corp-links">
+          <div class="corp-links-content"><span class="corp-links-content-hed" style="margin-left: 12px;">Company</span>
+            <ul>
+              <li><a class="corp-link" href="#" target="_blank" rel="noopener nofollow" aria-label="corp-link" data-link-type="text-link">About</a></li>
+              <li><a class="corp-link" href="#" target="_blank" rel="noopener nofollow" aria-label="corp-link" data-link-type="text-link">Careers</a></li>
+              <li><a class="corp-link" href="../html/contact.html" target="_blank" rel="noopener nofollow" aria-label="corp-link" data-link-type="text-link">Contact</a></li>
+              <li><a class="corp-link" href="#" target="_blank" rel="noopener nofollow" aria-label="corp-link" data-link-type="text-link">Advertise</a></li>
+              <li><a class="corp-link" href="#" target="_blank" rel="noopener nofollow" aria-label="corp-link" data-link-type="text-link">Instagram Portfolio</a>
+              </li>
+
+            </ul>
+          </div>
+          <div class="corp-links-content"><span class="corp-links-content-hed" style="margin-left: 12px;">Legal</span>
+            <ul>
+              <li><a href="../html/terms.html" target="_blank" class="corp-link">Terms &amp;
+                  Conditions</a>
+              </li>
+              <li><a href="../html/privacy.html" target="_blank" class="corp-link">Privacy
+                  Policy</a>
+              </li>
+              <li><a href="#" target="_blank" class="corp-link">Editorial
+                  Policy</a></li>
+              <li><a href="#" target="_blank" class="corp-link">Contests</a></li>
+              <li><a href="#" target="_blank" class="corp-link">Do Not Sell or Share My
+                  Information</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-content">
+
+        <div class="footer__social mt-3 mb-4">
+          <span class="corp-links-content-hed" style="margin-left: -2px;">Social</span>
+          <ul class="nav-socials">
+            <li>
+              <a href="#" target="_blank">
+                <svg width="10" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                  <path fill="blackColor" d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z">
+                  </path>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="#" target="_blank">
+                <svg width="19" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                  <path fill="blackColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z">
+                  </path>
+                </svg>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" target="_blank">
+                <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+                  <path fill="blackColor" d="M496 256c0 137-111 248-248 248-25.6 0-50.2-3.9-73.4-11.1 10.1-16.5 25.2-43.5 30.8-65 3-11.6 15.4-59 15.4-59 8.1 15.4 31.7 28.5 56.8 28.5 74.8 0 128.7-68.8 128.7-154.3 0-81.9-66.9-143.2-152.9-143.2-107 0-163.9 71.8-163.9 150.1 0 36.4 19.4 81.7 50.3 96.1 4.7 2.2 7.2 1.2 8.3-3.3.8-3.4 5-20.3 6.9-28.1.6-2.5.3-4.7-1.7-7.1-10.1-12.5-18.3-35.3-18.3-56.6 0-54.7 41.4-107.6 112-107.6 60.9 0 103.6 41.5 103.6 100.9 0 67.1-33.9 113.6-78 113.6-24.3 0-42.6-20.1-36.7-44.8 7-29.5 20.5-61.3 20.5-82.6 0-19-10.2-34.9-31.4-34.9-24.9 0-44.9 25.7-44.9 60.2 0 22 7.4 36.8 7.4 36.8s-24.5 103.8-29 123.2c-5 21.4-3 51.6-.9 71.2C65.4 450.9 0 361.1 0 256 0 119 111 8 248 8s248 111 248 248z">
+                  </path>
+                </svg>
+              </a>
+            </li>
+
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+ <!-- Popup structure (only one instance) -->
+<div class="popup2 open-popup2" id="popup2">
+  <button type="button" class="close btn01" onclick="closePopup2()">
+    <img class="cross" src="https://theluxeblog.com/frontend/theluxeblog/img/cross.png" />
+  </button>
+  <div style="padding: 0 30px 30px;">
+    <img src="/images/uploads/<%= brand.image %>" class="logo01" id="popup-brand-image">
+    <div class="popup">
+      <h3 class="cp-title" id="popup-coupon-title"></h3>
+      <div class="input-group w-100 mb-2 mr-sm-2 justify-content-center">
+        <a class="reveal-code-button clipbox text-center p-0 w-100 d-flex justify-content-center" id="copy-button" href="#">
+          <input type="text" class="form-control code-area" id="popup-coupon-code" value="<%= coupon.discountCode %>" readonly>
+          <div class="input-group-prepend cp-btn" style="width: 0" id="clipbox-btn" data-clipboard-target="#popup-coupon-code">
+            <div class="input-group-text copy">COPY</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var couponButtons = document.querySelectorAll('.reveal-coupon');
+
+  couponButtons.forEach(function(button) {
+    button.addEventListener('click', function(event) {
+      var code = this.getAttribute('data-code');
+
+      if (code) {
+        // Copy coupon code to clipboard
+        var tempInput = document.createElement('input');
+        tempInput.value = code;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+      }
+    });
+  });
+});
+</script>
+
+
+
+
+
+
+
+
+  <!--/ Coupon Modal -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.1/js/bootstrap.bundle.min.js" integrity="sha512-1TK4hjCY5+E9H3r5+05bEGbKGyK506WaDPfPe1s/ihwRjr6OtL43zJLzOFQ+/zciONEd+sp7LwrfOCnyukPSsg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="/javascripts/popup.js"></script> 
+  <script src="/javascripts/global.js"></script>
+</body>
+
+</html>

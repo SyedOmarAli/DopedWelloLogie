@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecting...</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f5f5f5;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    .popup {
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="popup">
+    <h3>
+      <%= discountCode ? 'Code copied successfully' : 'No code required' %>
+    </h3>
+    <p>
+      Redirecting you to <span id="brand-name"><%= brandName %></span>...
+    </p>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(function() {
+        window.location.href = "<%= targetUrl %>";
+      }, 2000); // Delay of 2 seconds
+    });
+  </script>
+</body>
+</html>

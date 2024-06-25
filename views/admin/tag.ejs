@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+ <link rel="stylesheet" href="/stylesheets/all.min.css">
+  <!-- Ionicons -->
+  <!-- <link rel="stylesheet" href="https://code.ionicframework.com/2.0.1/css/ionicons.min.css"> -->
+  <link rel="stylesheet" href="http://code.ionicframework.com/1.3.3/css/ionic.css">
+  <link rel="stylesheet" href="http://code.ionicframework.com/1.3.3/css/ionic.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+</head>
+<body class="sidebar-collapse">
+  <div class="wrapper">
+
+    <!-- Preloader -->
+    <div class="preloader flex-column justify-content-center align-items-center">
+      <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+    </div>
+  
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+      <!-- Left navbar links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="#" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="#" class="nav-link">Contact</a>
+        </li>
+      </ul>
+  
+      <!-- Right navbar links -->
+      <ul class="navbar-nav ml-auto">
+        <!-- Navbar Search -->
+  
+  
+        <!-- Messages Dropdown Menu -->
+  
+        <!-- Notifications Dropdown Menu -->
+  
+  
+    </nav>
+    <!-- /.navbar -->
+  
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+      <!-- Brand Logo -->
+      <a href="#" class="brand-link">
+        <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light">AdminLTE 3</span>
+      </a>
+  
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <!-- <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+  
+  
+        </div> -->
+  
+        <!-- SidebarSearch Form -->
+  
+  
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
+                 with font-awesome or any other icon font library -->
+            <li class="nav-item menu-open">
+              <a href="#" class="nav-link active">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>
+                  Dashboard
+                  <!-- <i class="right fas fa-angle-left"></i> -->
+                </p>
+              </a>
+            </li>
+  
+  <li class="nav-title text-white">Module</li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-book"></i>
+                <p>
+                  Blogs
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview text-white">
+                <li class="nav-item"><a class="nav-link" href="/admin/blog">
+                <i class="nav-icon la la-list-alt"></i> Library</a></li>
+                <li class="nav-item"><a class="nav-link" href="/admin/blog/create">
+                <i class="nav-icon la la-list-alt"></i> Add Blog</a></li>
+                <li class="nav-item"><a class="nav-link" href="/admin/blog/author">
+                  <i class="nav-icon la la-list-alt"></i> Author</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/admin/blog/category">
+                    <i class="nav-icon la la-list-alt"></i> Categories</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/admin/blog/tag">
+                      <i class="nav-icon la la-list-alt"></i> Tags</a></li>
+                      <li class="nav-item"><a class="nav-link" href="/admin/blog/pages">
+                        <i class="nav-icon la la-list-alt"></i> Pages</a></li>
+                        </ul>
+            </li>
+  
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-book"></i>
+                <p>
+                  Brand
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview text-white">
+                <li class="nav-item"><a class="nav-link" href="#">
+                <i class="nav-icon la la-list-alt"></i> Library</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">
+                <i class="nav-icon la la-list-alt"></i> Add Brand</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#">
+                    <i class="nav-icon la la-list-alt"></i> Featured Brand</a></li>
+                      <li class="nav-item"><a class="nav-link" href="#">
+                        <i class="nav-icon la la-list-alt"></i> Pages</a></li>
+                        </ul>
+            </li>
+  
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-book"></i>
+                <p>
+                  Category
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview text-white">
+                <li class="nav-item"><a class="nav-link" href="#">
+                <i class="nav-icon la la-list-alt"></i> Library</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">
+                <i class="nav-icon la la-list-alt"></i> Add Category</a></li>
+                      <li class="nav-item"><a class="nav-link" href="#">
+                        <i class="nav-icon la la-list-alt"></i> Pages</a></li>
+                        </ul>
+            </li>
+  
+  
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-book"></i>
+                <p>
+                  Coupon
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview text-white">
+                <li class="nav-item"><a class="nav-link" href="/admin/coupons">
+                <i class="nav-icon la la-list-alt"></i> Library</a></li>
+                <li class="nav-item"><a class="nav-link" href="/admin/coupons/create">
+                <i class="nav-icon la la-list-alt"></i> Add Coupon</a></li>
+                      <li class="nav-item"><a class="nav-link" href="#">
+                        <i class="nav-icon la la-list-alt"></i> Sorting/Merging</a></li>
+                        </ul>
+            </li>
+  
+  
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-book"></i>
+                <p>
+                  Event
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview text-white">
+                <li class="nav-item"><a class="nav-link" href="#">
+                <i class="nav-icon la la-list-alt"></i> Library</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">
+                <i class="nav-icon la la-list-alt"></i> Add Event</a></li>
+                      <li class="nav-item"><a class="nav-link" href="#">
+                        <i class="nav-icon la la-list-alt"></i> Pages</a></li>
+                        </ul>
+            </li>
+  
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-book"></i>
+                <p>
+                  Page
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview text-white">
+                <li class="nav-item"><a class="nav-link" href="#">
+                <i class="nav-icon la la-list-alt"></i> Library</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">
+                <i class="nav-icon la la-list-alt"></i> Add Page</a></li>
+                        </ul>
+            </li>
+  
+            <li class="nav-item">
+              <a class="nav-link" href="#"><i class="nav-icon la la-lg la-project-diagram"></i>
+                  Menu
+              </a>
+          </li>
+  
+            <li class="nav-item">
+              <a class="nav-link" href="#"><i class="nav-icon la la-lg la-project-diagram"></i>
+                Sitemap
+              </a>
+          </li>
+  
+          <li class="nav-title text-white"><i class="nav-icon la la-lg la-cog"></i> Settings</li>
+          <li class="nav-item"><a class="nav-link" href="#">
+          <i class="nav-icon la la-lg la-code"></i> General</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">
+          <i class="nav-icon la la-lg la-code"></i> Themes</a></li>
+  
+  
+          <li class="nav-title text-white"><i class="nav-icon la nav-icon la la-cogs"></i> Advanced</li>
+          <li class="nav-item"><a class="nav-link" href="#">
+          <i class="nav-icon la la-terminal"></i> <span>Logs</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="#">
+          <i class="nav-icon la la-terminal"></i> <span>Backup</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="#">
+          <i class="nav-icon la la-terminal"></i> <span>Redirection</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="#">
+          <i class="nav-icon la la-terminal"></i> <span>Authentication</span></a></li>
+  
+  
+  
+  
+                </li>
+  
+              </ul>
+            </li>
+  
+               </nav>
+        <!-- /.sidebar-menu -->
+      </div>
+      <!-- /.sidebar -->
+    </aside>
+  <!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper" style="min-height: 48px;">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <section class="content">
+    <div class="container-fluid">
+      <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+
+  <main class="main pt-2">
+    <nav aria-label="breadcrumb" class="d-none d-lg-block">
+      <ol class="breadcrumb bg-transparent p-0 justify-content-end">
+        <li class="breadcrumb-item text-capitalize">
+          <a href="/admin/dashboard">Admin</a>
+        </li>
+        <li class="breadcrumb-item text-capitalize">
+          <a href="/admin/blog">blogs</a>
+        </li>
+        <li class="breadcrumb-item text-capitalize active" aria-current="page">
+          List
+        </li>
+      </ol>
+    </nav>
+
+    <div class="container-fluid">
+      <h2>
+        <span class="text-capitalize">blogs</span>
+        <small id="datatable_info_stack"></small>
+      </h2>
+    </div>
+
+    <div class="container-fluid animated fadeIn">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row mb-0">
+            <div class="col-sm-6">
+              <div class="d-print-none with-border">
+                <a
+                  href="/admin/blog/tag/create"
+                  class="btn btn-primary"
+                  data-style="zoom-in"
+                  ><span class="ladda-label"
+                    ><i class="la la-plus"></i> Add Blog Tags</span
+                  ></a
+                >
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div
+                id="datatable_search_stack"
+                class="mt-sm-0 mt-2 d-print-none"
+              ></div>
+            </div>
+          </div>
+
+          <!-- blog.ejs -->
+
+<!-- Define formatDate function -->
+
+
+          <table class="bg-white table table-striped table-hover nowrap rounded shadow-xs border-xs mt-2 dataTable dtr-inline">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+              
+                <% tag.forEach(tag => { %>
+                    <tr>
+                      <td><%= tag.id %></td>
+                      <td><%= tag.name %></td>
+                      <td>
+                        <a href="/admin/blog/tag/<%= tag.id %>/edit">Edit</a>
+                        <a href="javascript:void(0);" onclick="sendDeleteRequest('<%= tag.id %>')">Delete</a>
+                    </td>
+                    </tr>
+                  <% }); %>
+            </tbody>
+        </table>
+
+        <script>
+          function sendDeleteRequest(tagId) {
+            if (confirm('Are you sure you want to delete this tag?')) {
+              fetch(`/admin/blog/tag/${tagId}/delete`, {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'X-Requested-With': 'XMLHttpRequest',
+                },
+              })
+              .then(response => {
+                if (response.ok) {
+                  window.location.href = '/admin/blog/tag'; // Redirect to the tag list page
+                } else {
+                  alert('Failed to delete the tag.');
+                }
+              })
+              .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while deleting the tag.');
+              });
+            }
+          }
+        </script>
+      
+
+        </div>
+      </div>
+    </section>
+    </div>
+  </main>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- data.ejs -->
+<!-- ./wrapper -->
+<!-- jQuery -->
+<% include ./partials/footer.ejs %>

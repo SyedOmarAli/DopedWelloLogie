@@ -1,0 +1,74 @@
+/* body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00b7ff;
+} */
+
+/* Custom styles for CKEditor */
+
+
+.pt-2 {
+  overflow: auto; /* or overflow: scroll; */
+}
+
+#editor {
+  max-height: 300px; /* Adjust the max-height value as needed */
+  overflow-y: auto;
+}
+
+.ck-editor__editable {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #333;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Custom styles for CKEditor toolbar */
+.ck.ck-toolbar {
+  border: none;
+  background-color: #f9f9f9;
+}
+
+.ck.ck-toolbar__separator {
+  border-right: 1px solid #ccc;
+}
+
+.ck.ck-toolbar__button {
+  color: #333;
+}
+
+.ck.ck-toolbar__button:hover {
+  background-color: #ddd;
+}
+
+.main-sidebar {
+  overflow-y: visible !important;
+}
+
+body {
+  overflow-y: auto !important;
+}
+
+.content-wrapper.kanban .content{
+  height: 100%;
+  overflow-x: auto;
+  overflow-y: scroll !important
+}
+
+.overflow-hidden{
+  overflow: auto !important;
+}
+
+.wrapper {
+  overflow: scroll !important;
+  scroll-behavior: auto !important;
+  height: 722%;
+  
+}
+
+

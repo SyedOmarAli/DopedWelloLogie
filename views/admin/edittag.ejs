@@ -1,0 +1,166 @@
+<% include ./partials/header.ejs %>
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+
+  <main class="main pt-2">
+    <nav aria-label="breadcrumb" class="d-none d-lg-block">
+      <ol class="breadcrumb bg-transparent p-0 justify-content-end">
+        <li class="breadcrumb-item text-capitalize">
+          <a href="/admin/dashboard">Admin</a>
+        </li>
+        <li class="breadcrumb-item text-capitalize">
+          <a href="/admin/blog/tag">Blog Tags</a>
+        </li>
+        <li class="breadcrumb-item text-capitalize active" aria-current="page">
+          Edit
+        </li>
+      </ol>
+    </nav>
+
+    <section class="container-fluid">
+      <h2>
+        <span class="text-capitalize">Blog Tags</span>
+        <small>Edit Tag.</small>
+
+        <small
+          ><a
+            href="/admin/blog/tag"
+            class="d-print-none font-sm"
+            ><i class="la la-angle-double-left"></i> Back to all
+            <span>Blog Tags</span></a
+          ></small
+        >
+      </h2>
+    </section>
+
+    <div class="container-fluid animated fadeIn">
+      <div class="row">
+        <div class="col-md-12 mt-5">
+          <form action="/admin/blog/tag/<%= tag._id %>/edit" method="post" enctype="application/x-www-form-urlencoded">
+            <input
+              class="inline-block mt-2 p-12 border-md"
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Name"
+              value="<%= tag.name %>"
+            />
+            <!-- <input
+              class="inline-block mt-2 p-12 border-md"
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Email"
+            /> -->
+            <!-- <input
+              class="inline-block mt-2 p-12 border-md"
+              type="password"
+              name="password"
+              id="password"
+              placeholder="password"
+            /> -->
+            <input
+              class="inline-block mt-2 p-12 border-md"
+              type="text"
+              name="slug"
+              id="slug"
+              placeholder="Slug"
+              value="<%= tag.slug %>"
+            />
+            <textarea
+              class="inline-block mt-5"
+              id="editor"
+              name="content"
+            ></textarea>
+            <input type="submit" value="Save Changes" />
+          </form>
+
+          <script>
+            const titleInput = document.getElementById("name");
+            const slugInput = document.getElementById("slug");
+
+            titleInput.addEventListener("input", function () {
+              const name = this.value.trim(); // Get the value of the title input and remove leading/trailing spaces
+              const slug = slugify(name); // Generate slug from username
+              slugInput.value = slug; // Update the value of the slug input
+            });
+
+            // Function to generate slug from title
+            function slugify(name) {
+              return name.toLowerCase().replace(/\s+/g, "-"); // Convert title to lowercase and replace spaces with dashes
+            }
+          </script>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+
+<style>
+  .content-wrapper {
+    background-color: #f4f6f9;
+  }
+  .content-header {
+    padding: 15px;
+  }
+  .main {
+    padding: 20px;
+  }
+  .breadcrumb {
+    margin-bottom: 20px;
+  }
+  form {
+    margin-top: 20px;
+  }
+  input[type="text"],
+  input[type="file"],
+  select {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+  }
+  #editorjs {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 10px;
+    min-height: 300px;
+    background-color: #fff;
+  }
+  input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+</style>
+
+<script src="/javascripts/editor.js"></script>
+
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<% include ./partials/footer.ejs %>

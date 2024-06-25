@@ -1,0 +1,171 @@
+<% include ./partials/header.ejs %>
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+
+  <main class="main pt-2">
+    <nav aria-label="breadcrumb" class="d-none d-lg-block">
+      <ol class="breadcrumb bg-transparent p-0 justify-content-end">
+        <li class="breadcrumb-item text-capitalize">
+          <a href="https://theluxeblog.com/admin/dashboard">Admin</a>
+        </li>
+        <li class="breadcrumb-item text-capitalize">
+          <a href="https://theluxeblog.com/admin/blog">blogs</a>
+        </li>
+        <li class="breadcrumb-item text-capitalize active" aria-current="page">
+          Add
+        </li>
+      </ol>
+    </nav>
+
+    <section class="container-fluid">
+      <h2>
+        <span class="text-capitalize">Coupons</span>
+        <small>Add coupon.</small>
+
+        <small
+          ><a href="/admin/brand" class="d-print-none font-sm"
+            ><i class="la la-angle-double-left"></i> Back to all
+            <span>coupons</span></a
+          ></small
+        >
+      </h2>
+    </section>
+
+    <div class="container-fluid animated fadeIn">
+      <div class="row">
+        <div class="col-md-12 mt-5">
+            <form action="/admin/coupons/create" method="POST">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required><br>
+            
+                <label for="affiliateURL">Affiliate URL:</label>
+                <input type="text" id="affiliateURL" name="affiliateURL"><br>
+            
+                <label for="discountCode">Discount Code:</label>
+                <input type="text" id="discountCode" name="discountCode"><br>
+            
+                <label for="dynamicContent">Dynamic Content:</label>
+                <textarea id="dynamicContent" name="dynamicContent"></textarea><br>
+            
+                <label for="brandId">Brand:</label>
+                <select id="brandId" name="brandId" required>
+                  <% brands.forEach(brand => { %>
+                    <option value="<%= brand._id %>"><%= brand.name %></option>
+                  <% }) %>
+                </select><br>
+            
+                <label for="freeShipping">Free Shipping:</label>
+                <input type="checkbox" id="freeShipping" name="freeShipping"><br>
+            
+                <label for="bestCoupon">Best Coupon:</label>
+                <input type="checkbox" id="bestCoupon" name="bestCoupon"><br>
+            
+                <label for="exclusive">Exclusive:</label>
+                <input type="checkbox" id="exclusive" name="exclusive"><br>
+            
+                <label for="available">Available:</label>
+                <input type="checkbox" id="available" name="available" checked><br>
+            
+                <label for="expiry">Expiry Date:</label>
+                <input type="date" id="expiry" name="expiry" required><br>
+            
+                <label for="description">Description:</label>
+                <textarea id="description" name="description"></textarea><br>
+            
+                <button type="submit">Create Coupon</button>
+              </form>
+
+          <script>
+            tinymce.init({
+              selector: "#description",
+              plugins:
+                "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+              toolbar_mode: "floating",
+            });
+          </script>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+
+  <!-- /.control-sidebar -->
+</div>
+
+<style>
+  .content-wrapper {
+    background-color: #f4f6f9;
+  }
+  .content-header {
+    padding: 15px;
+  }
+  .main {
+    padding: 20px;
+  }
+  .breadcrumb {
+    margin-bottom: 20px;
+  }
+  form {
+    margin-top: 20px;
+  }
+  input[type="text"],
+  input[type="file"],
+  select {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+  }
+  #editorjs {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 10px;
+    min-height: 300px;
+    background-color: #fff;
+  }
+  input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/list@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/image@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/quote@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/code@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/delimiter@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/table@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/raw@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/warning@latest"></script>
+
+<!-- <script src="/javascripts/editor.js"></script> -->
+
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<% include ./partials/footer.ejs %>

@@ -1,0 +1,271 @@
+<% include ./partials/header.ejs %>
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+
+  <main class="main pt-2">
+    <nav aria-label="breadcrumb" class="d-none d-lg-block">
+      <ol class="breadcrumb bg-transparent p-0 justify-content-end">
+        <li class="breadcrumb-item text-capitalize">
+          <a href="https://theluxeblog.com/admin/dashboard">Admin</a>
+        </li>
+        <li class="breadcrumb-item text-capitalize">
+          <a href="https://theluxeblog.com/admin/blog">blogs</a>
+        </li>
+        <li class="breadcrumb-item text-capitalize active" aria-current="page">
+          Add
+        </li>
+      </ol>
+    </nav>
+
+    <section class="container-fluid">
+      <h2>
+        <span class="text-capitalize">blogs</span>
+        <small>Add blog.</small>
+
+        <small
+          ><a
+            href="https://theluxeblog.com/admin/blog"
+            class="d-print-none font-sm"
+            ><i class="la la-angle-double-left"></i> Back to all
+            <span>blogs</span></a
+          ></small
+        >
+      </h2>
+    </section>
+
+    <div class="container-fluid animated fadeIn">
+      <div class="row">
+        <div class="col-md-12 mt-5">
+          <form
+            action="/uploadpost"
+            method="post"
+            id="desc"
+            enctype="multipart/form-data"
+          >
+            <input
+              class="inline-block mt-2 p-12 border-md"
+              type="text"
+              name="title"
+              id="title"
+              placeholder="Title"
+            />
+            <input
+              class="inline-block mt-2 p-12 border-md"
+              type="text"
+              name="slug"
+              id="slug"
+              placeholder="Slug"
+            />
+
+            <label for="category">Choose a category:</label>
+
+            <select
+              name="category"
+              id="category"
+              style="-webkit-appearance: none; cursor: text"
+            >
+              <% category.forEach(cat => { %>
+              <option value="<%= cat._id %>"><%= cat.name %></option>
+              <% }) %>
+              <option
+                value=""
+                selected
+                disabled
+                selected
+                style="display: none"
+              ></option>
+            </select>
+
+            <label for="tag">Choose a tag:</label>
+            <select
+              name="category"
+              id="category"
+              style="-webkit-appearance: none; cursor: text"
+            >
+              <% tag.forEach(tag => { %>
+              <option value="<%= tag._id %>"><%= tag.name %></option>
+              <% }) %>
+              <option
+                value=""
+                selected
+                disabled
+                selected
+                style="display: none"
+              ></option>
+            </select>
+
+            <label for="tag">Select Author:</label>
+            <select
+              name="name"
+              id="name"
+              style="-webkit-appearance: none; cursor: text"
+            >
+              <% author.forEach(auth => { %>
+              <option value="<%= auth._id %>"><%= auth.name %></option>
+              <% }) %>
+              <option
+                value=""
+                selected
+                disabled
+                selected
+                style="display: none"
+              ></option>
+            </select>
+
+            <input
+              class="text-black block w-1/3 px-3 py-2"
+              type="file"
+              name="postimage"
+            />
+            <input type="text" name="altText" placeholder="Image Alt Text" />
+            <input
+              type="text"
+              name="metaTitle"
+              placeholder="Meta Title"
+              required
+            />
+            <input
+              type="text"
+              name="metaDescription"
+              placeholder="Meta Description"
+              required
+            />
+            <input
+              type="text"
+              name="metaKeywords"
+              placeholder="Meta Keyword"
+              required
+            />
+            <!-- <div id="editorjs" class="border-md p-2"></div> -->
+            <textarea
+              name="content"
+              id="content"
+              class="border-md p-2"
+            ></textarea>
+
+            <label for="status">Status:</label>
+            <select id="status" name="status" required>
+              <option value="draft">Draft</option>
+              <option value="publish">Publish</option>
+              <option
+                value=""
+                selected
+                disabled
+                selected
+                style="display: none"
+              ></option>
+            </select>
+
+            <input type="submit" value="submit" />
+          </form>
+
+          <script>
+            const titleInput = document.getElementById("title");
+            const slugInput = document.getElementById("slug");
+
+            titleInput.addEventListener("input", function () {
+              const title = this.value.trim(); // Get the value of the title input and remove leading/trailing spaces
+              const slug = slugify(title); // Generate slug from title
+              slugInput.value = slug; // Update the value of the slug input
+            });
+
+            // Function to generate slug from title
+            function slugify(title) {
+              return title.toLowerCase().replace(/\s+/g, "-"); // Convert title to lowercase and replace spaces with dashes
+            }
+          </script>
+
+          <script>
+            tinymce.init({
+              selector: "#content",
+              plugins:
+                "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+              toolbar_mode: "floating",
+            });
+          </script>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+
+  <!-- /.control-sidebar -->
+</div>
+
+<style>
+  .content-wrapper {
+    background-color: #f4f6f9;
+  }
+  .content-header {
+    padding: 15px;
+  }
+  .main {
+    padding: 20px;
+  }
+  .breadcrumb {
+    margin-bottom: 20px;
+  }
+  form {
+    margin-top: 20px;
+  }
+  input[type="text"],
+  input[type="file"],
+  select {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+  }
+  #editorjs {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 10px;
+    min-height: 300px;
+    background-color: #fff;
+  }
+  input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/list@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/image@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/quote@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/code@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/delimiter@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/table@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/raw@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/warning@latest"></script>
+
+<!-- <script src="/javascripts/editor.js"></script> -->
+
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<% include ./partials/footer.ejs %>
